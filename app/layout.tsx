@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +29,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="py-8 px-40 flex items-center justify-between">
+          <Image
+            src="crobor-logo.svg"
+            alt="logo crobor"
+            width={230}
+            height={64}
+          />
+          <nav className="flex gap-2">
+            <Link href="/">Home</Link>
+            <Link href="/sobre">Sobre</Link>
+            <Link href="/equipe">Equipe</Link>
+            <Link href="/metas">Metas</Link>
+          </nav>
+        </header>
         {children}
       </body>
     </html>
